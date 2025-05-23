@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: tonkaxxx/about-me-image:v1  
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          value: "mongodb://admin:password@mongo:27017/anketa_db?authSource=admin"
+        - name: FLASK_APP
+          value: "app.py"
+        - name: FLASK_ENV
+          value: "development"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  type: NodePort
+  selector:
+    app: webapp
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30007
