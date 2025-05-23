@@ -18,12 +18,18 @@
 
 1. установите Minikube, kubernates и kubectl
 
-2. запустите Minikube:
+2. склонируйте репозиторий и перейдите в него:
+   ```bash
+   git clone https://github.com/tonkaxxx/about-me-pet.git
+   cd about-me-pet
+   ```
+
+3. запустите Minikube:
    ```bash
    minikube start --driver=docker
    ```
 
-3. примените конфигурации:
+4. примените конфигурации:
    ```bash
    kubectl apply -f mongo-secret.yaml
    kubectl apply -f mongo-config.yaml
@@ -31,7 +37,7 @@
    kubectl apply -f webapp.yaml
    ```
 
-4. откройте приложение:
+5. откройте приложение:
    ```bash
    minikube service webapp --url
    ```
