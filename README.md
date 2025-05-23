@@ -1,0 +1,43 @@
+# DevOps pet project
+
+Простое веб-приложение для создания анкет пользователей с сохранением данных в MongoDB.
+
+## Технологический стек
+
+- Backend: Python + Flask
+- Database: MongoDB
+- Frontend: HTML5, CSS3
+- DevOps: Docker, Kubernetes, Minikube 
+
+## Функционал
+
+- Создание анкет пользователей (никнейм, email, увлечения)
+- Просмотр всех анкет
+
+## Запуск приложения
+
+1. установите Minikube, kubernates и kubectl
+
+2. запустите Minikube:
+   ```bash
+   minikube start --driver=docker
+   ```
+
+3. примените конфигурации:
+   ```bash
+   kubectl apply -f mongo-secret.yaml
+   kubectl apply -f mongo-config.yaml
+   kubectl apply -f mongo.yaml
+   kubectl apply -f webapp.yaml
+   ```
+
+4. откройте приложение:
+   ```bash
+   minikube service webapp --url
+   ```
+
+## Контакты
+
+Telegram - @tonkaxxx
+
+
