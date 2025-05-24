@@ -31,10 +31,8 @@
 
 4. примените конфигурации:
    ```bash
-   kubectl apply -f mongo-secret.yaml
-   kubectl apply -f mongo-config.yaml
-   kubectl apply -f mongo.yaml
-   kubectl apply -f webapp.yaml
+   chmod +x minikube-start.sh
+   ./minikube-start.sh
    ```
 
 5. проверьте, запустилось ли приложение:
