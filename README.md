@@ -37,7 +37,17 @@
    kubectl apply -f webapp.yaml
    ```
 
-5. откройте приложение:
+5. проверьте, запустилось ли приложение:
+   ```bash
+   kubectl rollout status deployment/webapp
+   ```
+   вывод должен быть таким:
+   ```bash
+   deployment "webapp" successfully rolled out
+   ```
+   если нет, просто подождите минуту и запустите команду еще раз
+   
+6. откройте приложение:
    ```bash
    minikube service webapp --url
    ```
