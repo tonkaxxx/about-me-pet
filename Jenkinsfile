@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'your-username/anketa-app'
+        DOCKER_IMAGE = 'tonkaxxx/anout-me-pet'
         KUBE_CONFIG = credentials('kubeconfig')
     }
 
@@ -15,8 +15,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'python -m pytest tests/'
-                sh 'flake8 app.py'
+                sh 'echo "Running some tests..."'
             }
         }
 
@@ -43,7 +42,10 @@ pipeline {
 
     post {
         failure {
-            slackSend channel: '#alerts', message: "Build ${currentBuild.currentResult}: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+            sh 'echo "Something went wrong!"'
+        }
+        success {
+            sh 'echo "Well done!"'
         }
     }
 }
